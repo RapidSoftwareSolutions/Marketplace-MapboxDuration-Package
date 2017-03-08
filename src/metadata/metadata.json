@@ -1,0 +1,184 @@
+{
+  "package": "MapboxDuration",
+  "tagline": "Maxbox Duration API",
+  "description": "Calculation of travel time (in sec) between points based on the type of transport",
+  "image": "",
+  "repo": "",
+  "keywords": [],
+  "accounts": {
+    "domain": "mapbox.com",
+    "credentials": [
+      "accessToken"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getDrivingDuration",
+      "description": "Сalculate the duration of travel by car",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "The api key obtained from Mapbox",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "Array",
+          "info": "Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getDrivingDurationByFile",
+      "description": "Сalculate the duration of travel by car (json file coordinates)",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "The api key obtained from Mapbox",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "File",
+          "info": "File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getWalkingDuration",
+      "description": "Сalculate the duration of travel by walking",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "The api key obtained from Mapbox",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "Array",
+          "info": "Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getWalkingDurationByFile",
+      "description": "Сalculate the duration of travel by walking (json file coordinates)",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "The api key obtained from Mapbox",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "File",
+          "info": "File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCyclingDuration",
+      "description": "Сalculate the duration of travel by cycling",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "The api key obtained from Mapbox",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "Array",
+          "info": "Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCyclingDurationByFile",
+      "description": "Сalculate the duration of travel by cycling (json file coordinates)",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "The api key obtained from Mapbox",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "File",
+          "info": "File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
