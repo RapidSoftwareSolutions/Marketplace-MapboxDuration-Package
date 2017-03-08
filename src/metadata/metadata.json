@@ -2,9 +2,9 @@
   "package": "MapboxDuration",
   "tagline": "Maxbox Duration API",
   "description": "Calculation of travel time (in sec) between points based on the type of transport",
-  "image": "",
-  "repo": "",
-  "keywords": [],
+  "image": "https://logo.clearbit.com/mapbox.com",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MapboxDuration-Package",
+  "keywords": ["map","duration","route", "area", "coordinates"],
   "accounts": {
     "domain": "mapbox.com",
     "credentials": [
