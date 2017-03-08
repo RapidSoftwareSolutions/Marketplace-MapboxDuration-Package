@@ -92,9 +92,6 @@ Response
 ```
 
 MapboxDuration.getCyclingDurationByFile
-```code
-curl -X POST -F "accessToken=Your-accessToken-here" -F "coordinates=@coordinates.json" {{host}}
-```
 coordinates.json
 ```code
 [
