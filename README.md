@@ -1,3 +1,5 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/MapboxDuration/functions?utm_source=RapidAPIGitHub_MapboxDurationFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
 # MapboxDuration Package
 Calculation of travel time (in sec) between points based on the type of transport
 * Domain: mapbox.com
@@ -58,7 +60,16 @@ Calculation of travel time (in sec) between points based on the type of transpor
 #### Examples
 MapboxDuration.getCyclingDuration
 ```code
-curl -X POST -F "accessToken=Your-accessToken-here" -F "coordinates[0][lng]=13.41894" -F "coordinates[0][lat]=52.50055" -F "coordinates[1][lng]=14.10293" -F "coordinates[1][lat]=52.50055" -F "coordinates[2][lng]=13.50116" -F "coordinates[2][lat]=53.10293" {{host}} 
+{
+    "accessToken": "Your-accessToken-here",
+    "coordinates": [{
+        "lng": "-122.42",
+        "lat": "37.78"
+    }, {
+        "lng": "-77.03",
+        "lat": "38.91"
+    }]
+}
 ```
 Response
 ```code
