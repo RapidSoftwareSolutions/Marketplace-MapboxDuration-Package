@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Functional;
 
-class DirectionTest extends BaseTestCase
+class DurationTest extends BaseTestCase
 {
     public function testGetMetadata()
     {
