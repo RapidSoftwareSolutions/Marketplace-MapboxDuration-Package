@@ -33,12 +33,9 @@ $app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $respon
         ]);
 
         $vendorResponseBody = $vendorResponse->getBody()->getContents();
-        $rawBody = json_decode($vendorResponse->getBody());
-        $error = $rawBody->responses[0]->error;
-        $all_data[] = $rawBody;
-        if ($vendorResponse->getStatusCode() == '200' && !isset($error)) {
+        if ($vendorResponse->getStatusCode() == 200) {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = is_array($all_data) ? $all_data : json_decode($all_data);
+            $result['contextWrites']['to'] = json_decode($vendorResponse->getBody());
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
@@ -47,7 +44,8 @@ $app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $respon
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
         $vendorResponseBody = $exception->getResponse()->getBody();
         $result['callback'] = 'error';
-        $result['contextWrites']['to'] = json_decode($vendorResponseBody);
+        $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+        $result['contextWrites']['to']['status_msg'] = json_decode($vendorResponseBody);
     }
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);

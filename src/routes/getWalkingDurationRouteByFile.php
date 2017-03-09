@@ -22,29 +22,33 @@ $app->post('/api/MapboxDuration/getWalkingDurationByFile', function ($request, $
     $data = str_replace('\"', '"', $data);
     $fileContent['coordinates'] = json_decode($data, true);
 
-    try {
-        /** @var GuzzleHttp\Client $client */
-        $client = $this->httpClient;
-        $vendorResponse = $client->post($url, [
-            'json' => $fileContent,
-            'query' => $params
-        ]);
-        $vendorResponseBody = $vendorResponse->getBody()->getContents();
-        $rawBody = json_decode($vendorResponse->getBody());
-        $error = $rawBody->responses[0]->error;
-        $all_data[] = $rawBody;
-        if ($vendorResponse->getStatusCode() == '200' && !isset($error)) {
-            $result['callback'] = 'success';
-            $result['contextWrites']['to'] = is_array($all_data) ? $all_data : json_decode($all_data);
-        } else {
+    if ($fileContent['coordinates'] !== null) {
+        try {
+            /** @var GuzzleHttp\Client $client */
+            $client = $this->httpClient;
+            $vendorResponse = $client->post($url, [
+                'json' => $fileContent,
+                'query' => $params
+            ]);
+            $vendorResponseBody = $vendorResponse->getBody()->getContents();
+            if ($vendorResponse->getStatusCode() == '200') {
+                $result['callback'] = 'success';
+                $result['contextWrites']['to'] = json_decode($vendorResponse->getBody());
+            } else {
+                $result['callback'] = 'error';
+                $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+                $result['contextWrites']['to']['status_msg'] = is_array($vendorResponseBody) ? $vendorResponseBody : json_decode($vendorResponseBody);
+            }
+        } catch (\GuzzleHttp\Exception\ClientException $exception) {
+            $vendorResponseBody = $exception->getResponse()->getBody();
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-            $result['contextWrites']['to']['status_msg'] = is_array($vendorResponseBody) ? $vendorResponseBody : json_decode($vendorResponseBody);
+            $result['contextWrites']['to']['status_msg'] = json_decode($vendorResponseBody);
         }
-    } catch (\GuzzleHttp\Exception\ClientException $exception) {
-        $vendorResponseBody = $exception->getResponse()->getBody();
+    } else {
         $result['callback'] = 'error';
-        $result['contextWrites']['to'] = json_decode($vendorResponseBody);
+        $result['contextWrites']['to']['status_code'] = "JSON_VALIDATION";
+        $result['contextWrites']['to']['status_msg'] = "Incorrect JSON file";
     }
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
