@@ -2,7 +2,7 @@
 
 # MapboxDuration Package
 Calculation of travel time (in sec) between points based on the type of transport
-* Domain: mapbox.com
+* Domain: https://www.mapbox.com
 * Credentials: accessToken
 
 ## How to get credentials: 
