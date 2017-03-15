@@ -2,12 +2,12 @@
 
 # MapboxDuration Package
 Calculation of travel time (in sec) between points based on the type of transport
-* Domain: https://www.mapbox.com
+* Domain: [Mapbox](https://www.mapbox.com)
 * Credentials: accessToken
 
 ## How to get credentials: 
-1. You can get your accessToken from your account (https://www.mapbox.com/studio/account/tokens/)
-2. Please contact support for your access token for this API (https://www.mapbox.com/contact/)
+1. You can get your accessToken from your account ([Mapbox Account](https://www.mapbox.com/studio/account/tokens/))
+2. Please contact support for your access token for this API ([Mapbox Support](https://www.mapbox.com/contact/))
  
 ## MapboxDuration.getDrivingDuration
 Сalculate the duration of travel by car
