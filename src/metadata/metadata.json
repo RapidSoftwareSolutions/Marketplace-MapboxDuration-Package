@@ -6,7 +6,7 @@
   "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MapboxDuration-Package",
   "keywords": ["map","duration","route", "area", "coordinates"],
   "accounts": {
-    "domain": "mapbox.com",
+    "domain": "https://mapbox.com",
     "credentials": [
       "accessToken"
     ]
