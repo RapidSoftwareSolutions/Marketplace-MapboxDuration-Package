@@ -41,6 +41,7 @@
           "structure": [{
             "name": "arraySelect",
             "type": "Select",
+            "options": ["metric", "imperial"],
             "description": "Select array",
             "placeholder": ""
           }],
@@ -73,6 +74,7 @@
         {
           "name": "SelectName",
           "type": "Select",
+          "options": ["metric", "imperial"],
           "info": "Select info",
           "required": true
         },
