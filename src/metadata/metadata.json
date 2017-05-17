@@ -26,6 +26,12 @@
           "name": "coordinates",
           "type": "Array",
           "info": "Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.",
+          "structure": [{
+            "name": "Coordinates array",
+            "type": "Map",
+            "description": "Coordinates array",
+            "placeholder": ""
+          }],
           "required": true
         }
       ],

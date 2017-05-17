@@ -15,6 +15,9 @@ $app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $respon
     }
     $url = $settings['apiUrl'] . '/cycling';
 
+    var_dump($postData['args']);
+    die();
+
     $params['access_token'] = $postData['args']['accessToken'];
 
     try {
