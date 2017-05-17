@@ -23,15 +23,69 @@
           "required": true
         },
         {
-          "name": "coordinates",
+          "name": "arrayFileName",
           "type": "Array",
-          "info": "Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.",
+          "info": "test",
           "structure": [{
-            "name": "coordinates",
-            "type": "String",
-            "description": "Coordinates array",
+            "name": "arrayFile",
+            "type": "File",
+            "description": "File array",
             "placeholder": ""
           }],
+          "required": true
+        },
+        {
+          "name": "arraySelectName",
+          "type": "Array",
+          "info": "select",
+          "structure": [{
+            "name": "arraySelect",
+            "type": "Select",
+            "description": "Select array",
+            "placeholder": ""
+          }],
+          "required": true
+        },
+        {
+          "name": "arrayDatePickerName",
+          "type": "Array",
+          "info": "DatePicker",
+          "structure": [{
+            "name": "arrayDatePicker",
+            "type": "DatePicker",
+            "description": "DatePicker array",
+            "placeholder": ""
+          }],
+          "required": true
+        },
+        {
+          "name": "arrayMapName",
+          "type": "Array",
+          "info": "Map",
+          "structure": [{
+            "name": "arrayMap",
+            "type": "Map",
+            "description": "Map array",
+            "placeholder": ""
+          }],
+          "required": true
+        },
+        {
+          "name": "SelectName",
+          "type": "Select",
+          "info": "Select info",
+          "required": true
+        },
+        {
+          "name": "DatePickerName",
+          "type": "DatePicker",
+          "info": "DatePicker info",
+          "required": true
+        },
+        {
+          "name": "MapName",
+          "type": "Map",
+          "info": "Map info",
           "required": true
         }
       ],

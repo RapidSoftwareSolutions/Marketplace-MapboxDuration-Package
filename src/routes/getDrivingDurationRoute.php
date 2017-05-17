@@ -5,9 +5,6 @@ $app->post('/api/MapboxDuration/getDrivingDuration', function ($request, $respon
     /** @var \Slim\Http\Request $request */
     /** @var \Models\checkRequest $checkRequest */
 
-    var_dump($request);
-    die();
-
     $settings = $this->settings;
     $checkRequest = $this->validation;
     $validateRes = $checkRequest->validate($request, ['accessToken']);
@@ -16,7 +13,8 @@ $app->post('/api/MapboxDuration/getDrivingDuration', function ($request, $respon
     } else {
         $postData = $validateRes;
     }
-
+    var_dump($postData['args']);
+    die();
     $url = $settings['apiUrl'] . '/driving';
 
     $params['access_token'] = $postData['args']['accessToken'];
