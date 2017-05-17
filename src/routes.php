@@ -1,5 +1,6 @@
 <?php
 $routes = [
+    'testDataTypesRoute',
     'getDrivingDurationRoute',
     'getDrivingDurationRouteByFile',
     'getWalkingDurationRoute',

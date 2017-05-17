@@ -1,18 +1,20 @@
 <?php
 
-$app->post('/api/MapboxDuration/getDrivingDuration', function ($request, $response, $args) {
+$app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $args) {
     /** @var \Slim\Http\Response $response */
     /** @var \Slim\Http\Request $request */
     /** @var \Models\checkRequest $checkRequest */
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['accessToken', 'coordinates']);
+    $validateRes = $checkRequest->validate($request, ['accessToken']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $postData = $validateRes;
     }
+    var_dump($postData['args']);
+    die();
     $url = $settings['apiUrl'] . '/driving';
 
     $params['access_token'] = $postData['args']['accessToken'];
