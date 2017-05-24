@@ -17,6 +17,39 @@
       "description": "Test",
       "args": [
         {
+          "name": "testMay",
+          "type": "Array",
+          "info": "after zoom",
+          "required": true,
+          "structure": [
+            {
+              "name": "name",
+              "type": "String",
+              "info": "name"
+            },
+            {
+              "name": "Second name",
+              "type": "String",
+              "info": "Second name"
+            },
+            {
+              "name": "Age",
+              "type": "Number",
+              "info": "Age"
+            },
+            {
+              "name": "Photo",
+              "type": "File",
+              "info": "Photo"
+            },
+            {
+              "name": "Draft",
+              "type": "Boolean",
+              "info": "asdad"
+            }
+          ]
+        },
+        {
           "name": "accessToken",
           "type": "credentials",
           "info": "The api key obtained from Mapbox",
