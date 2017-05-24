@@ -24,7 +24,7 @@
         },
         {
           "name": "testMay",
-          "type": "Array",
+          "type": "List",
           "info": "after zoom",
           "required": true,
           "structure": [
