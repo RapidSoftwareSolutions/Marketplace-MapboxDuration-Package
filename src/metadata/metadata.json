@@ -17,6 +17,12 @@
       "description": "Test",
       "args": [
         {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "The api key obtained from Mapbox",
+          "required": true
+        },
+        {
           "name": "testMay",
           "type": "Array",
           "info": "after zoom",
@@ -49,12 +55,6 @@
               "info": "asdad"
             }
           ]
-        },
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": true
         },
         {
           "name": "arrayFileName",
