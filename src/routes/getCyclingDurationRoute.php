@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $response, $args) {
+$app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $response) {
     /** @var \Slim\Http\Response $response */
     /** @var \Slim\Http\Request $request */
     /** @var \Models\checkRequest $checkRequest */
@@ -18,12 +18,13 @@ $app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $respon
     $params['access_token'] = $postData['args']['accessToken'];
 
     try {
-        $json['coordinates'] = array_map(
-            function ($item) {
-                return array_map('floatval', array_values($item));
-            },
-            $postData['args']['coordinates']
-        );
+        $json = [];
+        $coordinates = $postData['args']['coordinates'];
+        foreach ($coordinates as $key => $coordinate) {
+            $coordinateArray = explode(',', $coordinate);
+            $json[$key]['lng'] = $coordinateArray[0];
+            $json[$key]['lat'] = $coordinateArray[1];
+        }
 
         /** @var GuzzleHttp\Client $client */
         $client = $this->httpClient;
