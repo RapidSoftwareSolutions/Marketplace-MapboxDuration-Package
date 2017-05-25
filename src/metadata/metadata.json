@@ -180,7 +180,7 @@
         },
         {
           "name": "coordinates",
-          "type": "Array",
+          "type": "List",
           "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
           "required": true,
           "structure": {
@@ -241,7 +241,7 @@
         },
         {
           "name": "coordinates",
-          "type": "Array",
+          "type": "List",
           "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
           "required": true,
           "structure": {
@@ -302,7 +302,7 @@
         },
         {
           "name": "coordinates",
-          "type": "Array",
+          "type": "List",
           "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
           "required": true,
           "structure": {
