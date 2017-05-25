@@ -23,6 +23,42 @@
           "required": true
         },
         {
+          "name": "testListId1",
+          "type": "List",
+          "info": "Test List ID Required = false",
+          "required": false,
+          "structure": {
+            "name": "id",
+            "type": "Number",
+            "info": "Id for TestListId",
+            "required": false
+          }
+        },
+        {
+          "name": "testListId2",
+          "type": "List",
+          "info": "Test list ID. Required = true",
+          "required": true,
+          "structure": {
+            "name": "id",
+            "type": "Number",
+            "info": "Id for TestListId",
+            "required": true
+          }
+        },
+        {
+          "name": "testListId3",
+          "type": "List",
+          "info": "Test list ID. Required = false and child = true",
+          "required": false,
+          "structure": {
+            "name": "id",
+            "type": "Number",
+            "info": "Id for TestListId",
+            "required": true
+          }
+        },
+        {
           "name": "testMay",
           "type": "Array",
           "info": "after zoom",
