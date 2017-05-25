@@ -13,42 +13,44 @@ $app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $
     } else {
         $postData = $validateRes;
     }
-    var_dump($postData['args']);
-    die();
+//    var_dump($postData['args']);
+//    die();
     $url = $settings['apiUrl'] . '/driving';
 
     $params['access_token'] = $postData['args']['accessToken'];
+    $result = $postData['args'];
 
-    try {
-        $json['coordinates'] = array_map(
-            function ($item) {
-                return array_map('floatval', array_values($item));
-            },
-            $postData['args']['coordinates']
-        );
+//    try {
+//        $json['coordinates'] = array_map(
+//            function ($item) {
+//                return array_map('floatval', array_values($item));
+//            },
+//            $postData['args']['coordinates']
+//        );
+//
+//        /** @var GuzzleHttp\Client $client */
+//        $client = $this->httpClient;
+//        $vendorResponse = $client->post($url, [
+//            'query' => $params,
+//            'json' => $json
+//        ]);
+//
+//        $vendorResponseBody = $vendorResponse->getBody()->getContents();
+//        if ($vendorResponse->getStatusCode() == 200) {
+//            $result['callback'] = 'success';
+//            $result['contextWrites']['to'] = json_decode($vendorResponse->getBody());
+//        } else {
+//            $result['callback'] = 'error';
+//            $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+//            $result['contextWrites']['to']['status_msg'] = is_array($vendorResponseBody) ? $vendorResponseBody : json_decode($vendorResponseBody);
+//        }
+//    } catch (\GuzzleHttp\Exception\ClientException $exception) {
+//        $vendorResponseBody = $exception->getResponse()->getBody();
+//        $result['callback'] = 'error';
+//        $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+//        $result['contextWrites']['to']['status_msg'] = json_decode($vendorResponseBody);
+//    }
 
-        /** @var GuzzleHttp\Client $client */
-        $client = $this->httpClient;
-        $vendorResponse = $client->post($url, [
-            'query' => $params,
-            'json' => $json
-        ]);
-
-        $vendorResponseBody = $vendorResponse->getBody()->getContents();
-        if ($vendorResponse->getStatusCode() == 200) {
-            $result['callback'] = 'success';
-            $result['contextWrites']['to'] = json_decode($vendorResponse->getBody());
-        } else {
-            $result['callback'] = 'error';
-            $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-            $result['contextWrites']['to']['status_msg'] = is_array($vendorResponseBody) ? $vendorResponseBody : json_decode($vendorResponseBody);
-        }
-    } catch (\GuzzleHttp\Exception\ClientException $exception) {
-        $vendorResponseBody = $exception->getResponse()->getBody();
-        $result['callback'] = 'error';
-        $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-        $result['contextWrites']['to']['status_msg'] = json_decode($vendorResponseBody);
-    }
-
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+//    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+    return $response->withStatus(200)->withHeader('Content-Type', 'application/json')->withJson($result);
 });

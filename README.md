@@ -15,7 +15,7 @@ Calculation of travel time (in sec) between points based on the type of transpor
 | Field      | Type       | Description
 |------------|------------|----------
 | accessToken| credentials| The api key obtained from Mapbox
-| coordinates| Array      | Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.
+| coordinates| Array      | List of coordinates ['lng1,lat1', 'lng2,lat2'] minimum 2 pairs of coordinates. Maximum 100 pairs.
 
 ## MapboxDuration.getDrivingDurationByFile
 Сalculate the duration of travel by car (json file coordinates)
@@ -31,7 +31,7 @@ Calculation of travel time (in sec) between points based on the type of transpor
 | Field      | Type       | Description
 |------------|------------|----------
 | accessToken| credentials| The api key obtained from Mapbox
-| coordinates| Array      | Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.
+| coordinates| Array      | List of coordinates ['lng1,lat1', 'lng2,lat2'] minimum 2 pairs of coordinates. Maximum 100 pairs.
 
 ## MapboxDuration.getWalkingDurationByFile
 Сalculate the duration of travel by walking (json file coordinates)
@@ -47,7 +47,7 @@ Calculation of travel time (in sec) between points based on the type of transpor
 | Field      | Type       | Description
 |------------|------------|----------
 | accessToken| credentials| The api key obtained from Mapbox
-| coordinates| Array      | Array of objects like [{'lng': value1, 'lat': value2}, {'lng': value3, 'lat': value4}] minimum 2 pairs of coordinates. Maximum 100 pairs.
+| coordinates| Array      | List of coordinates ['lng1,lat1', 'lng2,lat2'] minimum 2 pairs of coordinates. Maximum 100 pairs.
 
 ## MapboxDuration.getCyclingDurationByFile
 Сalculate the duration of travel by cycling (json file coordinates)
@@ -63,11 +63,8 @@ MapboxDuration.getCyclingDuration
 {
     "accessToken": "Your-accessToken-here",
     "coordinates": [{
-        "lng": "-122.42",
-        "lat": "37.78"
-    }, {
-        "lng": "-77.03",
-        "lat": "38.91"
+        "-122.42,37.78",
+        "-77.03, 38.91"
     }]
 }
 ```

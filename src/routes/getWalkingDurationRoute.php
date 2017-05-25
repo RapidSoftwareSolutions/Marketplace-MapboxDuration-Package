@@ -17,15 +17,25 @@ $app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $respon
 
     $params['access_token'] = $postData['args']['accessToken'];
 
-    try {
-        $json = [];
-        $coordinates = $postData['args']['coordinates'];
-        foreach ($coordinates as $key => $coordinate) {
-            $coordinateArray = explode(',', $coordinate);
-            $json[$key]['lng'] = $coordinateArray[0];
-            $json[$key]['lat'] = $coordinateArray[1];
-        }
+    $json = [];
 
+    if (is_array($postData['args']['coordinates'])) {
+        foreach ($postData['args']['coordinates'] as $key => $coordinate) {
+            $coordinateArray = explode(',', $coordinate);
+            $json['coordinates'][$key]['lng'] = $coordinateArray[0];
+            $json['coordinates'][$key]['lat'] = $coordinateArray[1];
+        }
+    }
+    else {
+        $json['coordinates'] = array_map(
+            function ($item) {
+                return array_map('floatval', array_values($item));
+            },
+            $postData['args']['coordinates']
+        );
+    }
+
+    try {
         /** @var GuzzleHttp\Client $client */
         $client = $this->httpClient;
         $vendorResponse = $client->post($url, [
