@@ -29,9 +29,8 @@
           "required": false,
           "structure": {
             "name": "id",
-            "type": "Number",
-            "info": "Id for TestListId",
-            "required": false
+            "type": "String",
+            "info": "Id for TestListId"
           }
         },
         {
@@ -42,20 +41,7 @@
           "structure": {
             "name": "id",
             "type": "Number",
-            "info": "Id for TestListId",
-            "required": true
-          }
-        },
-        {
-          "name": "testListId3",
-          "type": "List",
-          "info": "Test list ID. Required = false and child = true",
-          "required": false,
-          "structure": {
-            "name": "id",
-            "type": "Number",
-            "info": "Id for TestListId",
-            "required": true
+            "info": "Id for TestListId"
           }
         },
         {
@@ -73,22 +59,64 @@
             {
               "name": "Second name",
               "type": "String",
-              "info": "Second name"
+              "info": "Second name",
+              "required": true
             },
             {
               "name": "Age",
               "type": "Number",
-              "info": "Age"
+              "info": "Age",
+              "required": true
             },
             {
               "name": "Photo",
               "type": "File",
-              "info": "Photo"
+              "info": "Photo",
+              "required": true
             },
             {
               "name": "Draft",
               "type": "Boolean",
-              "info": "asdad"
+              "info": "asdad",
+              "required": true
+            }
+          ]
+        },        
+        {
+          "name": "testMayFalse",
+          "type": "Array",
+          "info": "YO ADi!! Hello from Dimas!",
+          "required": false,
+          "structure": [
+            {
+              "name": "name",
+              "type": "String",
+              "info": "name",
+              "required": false
+            },
+            {
+              "name": "Second name",
+              "type": "String",
+              "info": "Second name",
+              "required": true
+            },
+            {
+              "name": "Age",
+              "type": "Number",
+              "info": "Age",
+              "required": true
+            },
+            {
+              "name": "Photo",
+              "type": "File",
+              "info": "Photo",
+              "required": true
+            },
+            {
+              "name": "Draft",
+              "type": "Boolean",
+              "info": "asdad",
+              "required": true
             }
           ]
         },
