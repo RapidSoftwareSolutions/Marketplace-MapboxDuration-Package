@@ -19,20 +19,15 @@ $app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $respon
 
     $json = [];
 
-    if (is_array($postData['args']['coordinates'])) {
-        foreach ($postData['args']['coordinates'] as $key => $coordinate) {
+    foreach ($postData['args']['coordinates'] as $key => $coordinate) {
+        if (is_array($coordinate)) {
+            $json['coordinates'][$key]['lng'] = $coordinate['lng'];
+            $json['coordinates'][$key]['lat'] = $coordinate['lat'];
+        } else {
             $coordinateArray = explode(',', $coordinate);
             $json['coordinates'][$key]['lng'] = $coordinateArray[0];
             $json['coordinates'][$key]['lat'] = $coordinateArray[1];
         }
-    }
-    else {
-        $json['coordinates'] = array_map(
-            function ($item) {
-                return array_map('floatval', array_values($item));
-            },
-            $postData['args']['coordinates']
-        );
     }
 
     try {
