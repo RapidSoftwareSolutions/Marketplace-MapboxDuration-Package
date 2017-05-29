@@ -8,8 +8,8 @@ $app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $
     $settings = $this->settings;
     $checkRequest = $this->validation;
 
-    $result = $request->getBody();
-    if ($result == '') {
+    $result = json_decode($request->getBody()->getContents(), true);
+    if (empty($result) || json_last_error()) {
         $result = $request->getParsedBody();
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
