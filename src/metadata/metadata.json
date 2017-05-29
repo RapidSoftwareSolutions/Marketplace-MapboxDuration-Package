@@ -124,46 +124,50 @@
           "name": "arrayFileName",
           "type": "Array",
           "info": "test",
+          "required": true,
           "structure": [{
             "name": "arrayFile",
             "type": "File",
-            "info": "File array"
-          }],
-          "required": true
+            "info": "File array",
+            "required": true
+          }]
         },
         {
           "name": "arraySelectName",
           "type": "Array",
           "info": "select",
+          "required": true,
           "structure": [{
             "name": "arraySelect",
             "type": "Select",
             "options": ["metric", "imperial"],
-            "info": "Select array"
-          }],
-          "required": true
+            "info": "Select array",
+            "required": true
+          }]
         },
         {
           "name": "arrayDatePickerName",
           "type": "Array",
           "info": "DatePicker",
+          "required": true,
           "structure": [{
             "name": "arrayDatePicker",
             "type": "DatePicker",
-            "info": "DatePicker array"
-          }],
-          "required": true
+            "info": "DatePicker array",
+            "required": true
+          }]
         },
         {
           "name": "arrayMapName",
           "type": "Array",
           "info": "Map",
+          "required": true,
           "structure": [{
             "name": "arrayMap",
             "type": "Map",
-            "info": "Map array"
-          }],
-          "required": true
+            "info": "Map array",
+            "required": true
+          }]
         },
         {
           "name": "SelectName",
