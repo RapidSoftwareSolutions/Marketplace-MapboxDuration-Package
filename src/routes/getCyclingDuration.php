@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $response) {
+$app->post('/api/MapboxDuration/getCyclingDuration', function ($request, $response) {
     /** @var \Slim\Http\Response $response */
     /** @var \Slim\Http\Request $request */
     /** @var \Models\checkRequest $checkRequest */
@@ -13,7 +13,7 @@ $app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $respon
     } else {
         $postData = $validateRes;
     }
-    $url = $settings['apiUrl'] . '/walking';
+    $url = $settings['apiUrl'] . '/cycling';
 
     $params['access_token'] = $postData['args']['accessToken'];
 
@@ -24,11 +24,18 @@ $app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $respon
             $json['coordinates'][$key][] = $coordinate['lng'];
             $json['coordinates'][$key][] = $coordinate['lat'];
         } else {
-            $coordinateArray = explode(',', $coordinate);
+            $coordinateArray = explode(',', str_replace(" ", "", $coordinate));
             $json['coordinates'][$key][] = $coordinateArray[0];
             $json['coordinates'][$key][] = $coordinateArray[1];
         }
     }
+
+    $json['coordinates'] = array_map(
+        function ($item) {
+            return array_map('floatval', array_values($item));
+        },
+        $json['coordinates']
+    );
 
     try {
         /** @var GuzzleHttp\Client $client */

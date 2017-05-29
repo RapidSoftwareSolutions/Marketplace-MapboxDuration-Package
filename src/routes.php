@@ -1,12 +1,12 @@
 <?php
 $routes = [
-    'testDataTypesRoute',
-    'getDrivingDurationRoute',
-    'getDrivingDurationRouteByFile',
-    'getWalkingDurationRoute',
-    'getWalkingDurationRouteByFile',
-    'getCyclingDurationRoute',
-    'getCyclingDurationRouteByFile',
+    'testDataTypes',
+    'getDrivingDuration',
+    'getDrivingDurationByFile',
+    'getWalkingDuration',
+    'getWalkingDurationByFile',
+    'getCyclingDuration',
+    'getCyclingDurationByFile',
     'metadata'
 ];
 foreach($routes as $file) {
