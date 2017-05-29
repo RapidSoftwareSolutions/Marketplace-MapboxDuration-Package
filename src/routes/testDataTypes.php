@@ -7,7 +7,12 @@ $app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($request->getBody());
+
+    $result = $request->getBody();
+    if ($result == '') {
+        $result = $request->getParsedBody();
+    }
+    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     $validateRes = $checkRequest->validate($request, ['accessToken']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
