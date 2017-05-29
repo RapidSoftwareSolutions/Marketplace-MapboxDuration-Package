@@ -159,15 +159,14 @@
         },
         {
           "name": "arrayMapName",
-          "type": "Array",
+          "type": "List",
           "info": "Map",
           "required": true,
-          "structure": [{
+          "structure": {
             "name": "arrayMap",
             "type": "Map",
-            "info": "Map array",
-            "required": true
-          }]
+            "info": "Map array"
+          }
         },
         {
           "name": "SelectName",
