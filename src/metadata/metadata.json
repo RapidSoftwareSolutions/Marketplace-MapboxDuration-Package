@@ -171,7 +171,7 @@
         {
           "name": "SelectName",
           "type": "Select",
-          "options": ["metric", "imperial"],
+          "options": {"Test": "metric", "asd": "imperial"},
           "info": "Select info",
           "required": true
         },
