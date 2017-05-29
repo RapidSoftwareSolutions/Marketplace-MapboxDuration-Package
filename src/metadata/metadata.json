@@ -134,16 +134,16 @@
         },
         {
           "name": "arraySelectName",
-          "type": "Array",
+          "type": "List",
           "info": "select",
           "required": true,
-          "structure": [{
+          "structure": {
             "name": "arraySelect",
             "type": "Select",
             "options": ["metric", "imperial"],
             "info": "Select array",
             "required": true
-          }]
+          }
         },
         {
           "name": "arrayDatePickerName",
