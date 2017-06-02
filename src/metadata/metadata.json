@@ -45,6 +45,26 @@
           }
         },
         {
+          "name": "keyValue",
+          "type": "Array",
+          "info": "key value array",
+          "required": true,
+          "structure": [
+            {
+              "name": "timestamp",
+              "type": "String",
+              "info": "timestamp string",
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "String",
+              "info": "value string",
+              "required": true
+            }
+          ]
+        },
+        {
           "name": "testMay",
           "type": "Array",
           "info": "after zoom",
