@@ -12,10 +12,11 @@ $app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $
     if (empty($result) || json_last_error()) {
         $result = $request->getParsedBody();
     }
-    $result = preg_replace_callback('~"([\[{].*?[}\]])"~s', function ($match) {
-        return preg_replace('~\s*"\s*~', "\"", $match[1]);
-    }, $result);
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+    $toJson = new \Models\normilizeJson();
+    $data = $toJson->normalizeJson($result);
+    $data = str_replace('\"', '"', $data);
+    $post_data = json_decode($data, true);
+    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($post_data);
     $validateRes = $checkRequest->validate($request, ['accessToken']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
