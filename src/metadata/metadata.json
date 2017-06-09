@@ -20,7 +20,7 @@
           "name": "accessToken",
           "type": "credentials",
           "info": "The api key obtained from Mapbox",
-          "required": true
+          "required": false
         },
         {
           "name": "testListId1",
@@ -37,7 +37,7 @@
           "name": "testListId2",
           "type": "List",
           "info": "Test list ID. Required = true",
-          "required": true,
+          "required": false,
           "structure": {
             "name": "id",
             "type": "Number",
@@ -48,7 +48,7 @@
           "name": "keyValue",
           "type": "Array",
           "info": "key value array",
-          "required": true,
+          "required": false,
           "structure": [
             {
               "name": "timestamp",
@@ -68,7 +68,7 @@
           "name": "testMay",
           "type": "Array",
           "info": "after zoom",
-          "required": true,
+          "required": false,
           "structure": [
             {
               "name": "name",
@@ -144,7 +144,7 @@
           "name": "arrayFileName",
           "type": "Array",
           "info": "test",
-          "required": true,
+          "required": false,
           "structure": [{
             "name": "arrayFile",
             "type": "File",
@@ -156,7 +156,7 @@
           "name": "arraySelectName",
           "type": "List",
           "info": "select",
-          "required": true,
+          "required": false,
           "structure": {
             "name": "arraySelect",
             "type": "Select",
@@ -169,7 +169,7 @@
           "name": "arrayDatePickerName",
           "type": "Array",
           "info": "DatePicker",
-          "required": true,
+          "required": false,
           "structure": [{
             "name": "arrayDatePicker",
             "type": "DatePicker",
@@ -181,7 +181,7 @@
           "name": "arrayMapName",
           "type": "List",
           "info": "Map",
-          "required": true,
+          "required": false,
           "structure": {
             "name": "arrayMap",
             "type": "Map",
@@ -193,19 +193,19 @@
           "type": "Select",
           "options": ["metric", "imperial"],
           "info": "Select info",
-          "required": true
+          "required": false
         },
         {
           "name": "DatePickerName",
           "type": "DatePicker",
           "info": "DatePicker info",
-          "required": true
+          "required": false
         },
         {
           "name": "MapName",
           "type": "Map",
           "info": "Map info",
-          "required": true
+          "required": false
         }
       ],
       "callbacks": [
