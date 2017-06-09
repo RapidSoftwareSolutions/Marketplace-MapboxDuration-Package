@@ -8,14 +8,16 @@ $app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $
     $settings = $this->settings;
     $checkRequest = $this->validation;
 
-    $result = json_decode($request->getBody()->getContents(), true);
-    if (empty($result) || json_last_error()) {
-        $result = $request->getParsedBody();
+    $data = $request->getBody();
+    if ($data == '') {
+        $post_data = $request->getParsedBody();
     }
-    $toJson = new \Models\normilizeJson();
-    $data = $toJson->normalizeJson($result);
-    $data = str_replace('\"', '"', $data);
-    $post_data = json_decode($data, true);
+    else {
+        $toJson = new \Models\normilizeJson();
+        $data = $toJson->normalizeJson($data);
+        $data = str_replace('\"', '"', $data);
+        $post_data = json_decode($data, true);
+    }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($post_data);
     $validateRes = $checkRequest->validate($request, ['accessToken']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
