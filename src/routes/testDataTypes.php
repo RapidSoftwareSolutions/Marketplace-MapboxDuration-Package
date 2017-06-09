@@ -12,6 +12,9 @@ $app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $
     if (empty($result) || json_last_error()) {
         $result = $request->getParsedBody();
     }
+    $result = preg_replace_callback('~"([\[{].*?[}\]])"~s', function ($match) {
+        return preg_replace('~\s*"\s*~', "\"", $match[1]);
+    }, $result);
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     $validateRes = $checkRequest->validate($request, ['accessToken']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
