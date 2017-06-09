@@ -8,21 +8,21 @@ $app->post('/api/MapboxDuration/testDataTypes', function ($request, $response, $
     $settings = $this->settings;
     $checkRequest = $this->validation;
 
-//    $data = $request->getBody();
-//    if ($data == '') {
-//        $post_data = $request->getParsedBody();
-//    }
-//    else {
-//        $toJson = new \Models\normilizeJson();
-//        $data = $toJson->normalizeJson($data);
-//        $data = str_replace('\"', '"', $data);
-//        $post_data = json_decode($data, true);
-//    }
-    $result = json_decode($request->getBody()->getContents(), true);
-    if (empty($result) || json_last_error()) {
-        $result = $request->getParsedBody();
+    $data = $request->getBody();
+    if ($data == '') {
+        $post_data = $request->getParsedBody();
     }
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+    else {
+        $toJson = new \Models\normilizeJson();
+        $data = $toJson->normalizeJson($data);
+        $data = str_replace('\"', '"', $data);
+        $post_data = json_decode($data, true);
+    }
+//    $result = json_decode($request->getBody()->getContents(), true);
+//    if (empty($result) || json_last_error()) {
+//        $result = $request->getParsedBody();
+//    }
+    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($post_data);
     $validateRes = $checkRequest->validate($request, ['accessToken']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
