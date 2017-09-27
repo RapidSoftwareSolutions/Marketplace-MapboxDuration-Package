@@ -5,10 +5,9 @@ Calculation of travel time (in sec) between points based on the type of transpor
 * Domain: [Mapbox](https://www.mapbox.com)
 * Credentials: accessToken
 
-## How to get credentials: 
-1. You can get your accessToken from your account ([Mapbox Account](https://www.mapbox.com/studio/account/tokens/))
-2. Please contact support for your access token for this API ([Mapbox Support](https://www.mapbox.com/contact/))
- 
+## How to get credentials:
+1. Log in or Sign up for a [Mapbox Account](https://www.mapbox.com/signup/)
+2. Navigate to your [Account Settings](https://www.mapbox.com/studio/account/tokens/) to get your accessToken
  
 ## Custom datatypes: 
  |Datatype|Description|Example
