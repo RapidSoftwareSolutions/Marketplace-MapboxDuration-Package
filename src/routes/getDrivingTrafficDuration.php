@@ -1,6 +1,6 @@
-x<?php
+<?php
 
-$app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $response) {
+$app->post('/api/MapboxDuration/getDrivingTrafficDuration', function ($request, $response) {
     /** @var \Slim\Http\Response $response */
     /** @var \Slim\Http\Request $request */
     /** @var \Models\checkRequest $checkRequest */
@@ -13,22 +13,23 @@ $app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $respon
     } else {
         $postData = $validateRes;
     }
-    $url = $settings['apiUrl'] . '/walking';
+    $url = $settings['apiUrl'] . '/driving-traffic';
 
 		$token = $postData['args']['accessToken'];
+		$json = [];
+		
 
-    $json = [];
+    foreach ($postData['args']['coordinates'] as $key => $coordinate) {
+        if (is_array($coordinate)) {
+						$coordinateString .=  $json['coordinates'][$key][] = $coordinate['lng'] . ',' . $json['coordinates'][$key][] = $coordinate['lat'] . ';';
+						
+        } else {
+            $coordinateArray = explode(',', str_replace(" ", "", $coordinate));
+						$coordinateString .=  $json['coordinates'][$key][] = $coordinateArray[0] . ',' . $json['coordinates'][$key][] = $coordinateArray[1] = $coordinate['lat'] . ';';
+        }
+		}
+		$coordinates = substr($coordinateString, 0, -1);
 
-		foreach ($postData['args']['coordinates'] as $key => $coordinate) {
-			if (is_array($coordinate)) {
-					$coordinateString .=  $json['coordinates'][$key][] = $coordinate['lng'] . ',' . $json['coordinates'][$key][] = $coordinate['lat'] . ';';
-					
-			} else {
-					$coordinateArray = explode(',', str_replace(" ", "", $coordinate));
-					$coordinateString .=  $json['coordinates'][$key][] = $coordinateArray[0] . ',' . $json['coordinates'][$key][] = $coordinateArray[1] = $coordinate['lat'] . ';';
-			}
-	}
-	$coordinates = substr($coordinateString, 0, -1);
 
     try {
         /** @var GuzzleHttp\Client $client */

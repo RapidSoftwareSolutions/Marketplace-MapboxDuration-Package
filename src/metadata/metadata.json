@@ -13,213 +13,6 @@
   },
   "blocks": [
     {
-      "name": "testDataTypes",
-      "description": "Test",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": false
-        },
-        {
-          "name": "testListId1",
-          "type": "List",
-          "info": "Test List ID Required = false",
-          "required": false,
-          "structure": {
-            "name": "id",
-            "type": "String",
-            "info": "Id for TestListId"
-          }
-        },
-        {
-          "name": "testListId2",
-          "type": "List",
-          "info": "Test list ID. Required = true",
-          "required": false,
-          "structure": {
-            "name": "id",
-            "type": "Number",
-            "info": "Id for TestListId"
-          }
-        },
-        {
-          "name": "keyValue",
-          "type": "Array",
-          "info": "key value array",
-          "required": false,
-          "structure": [
-            {
-              "name": "timestamp",
-              "type": "String",
-              "info": "timestamp string",
-              "required": false
-            },
-            {
-              "name": "value",
-              "type": "String",
-              "info": "value string",
-              "required": true
-            }
-          ]
-        },
-        {
-          "name": "testMay",
-          "type": "Array",
-          "info": "after zoom",
-          "required": false,
-          "structure": [
-            {
-              "name": "name",
-              "type": "String",
-              "info": "name",
-              "required": false
-            },
-            {
-              "name": "Second name",
-              "type": "String",
-              "info": "Second name",
-              "required": true
-            },
-            {
-              "name": "Age",
-              "type": "Number",
-              "info": "Age",
-              "required": true
-            },
-            {
-              "name": "Photo",
-              "type": "File",
-              "info": "Photo",
-              "required": true
-            },
-            {
-              "name": "Draft",
-              "type": "Boolean",
-              "info": "asdad",
-              "required": true
-            }
-          ]
-        },        
-        {
-          "name": "testMayFalse",
-          "type": "Array",
-          "info": "YO ADi!! Hello from Dimas!",
-          "required": false,
-          "structure": [
-            {
-              "name": "name",
-              "type": "String",
-              "info": "name",
-              "required": false
-            },
-            {
-              "name": "Second name",
-              "type": "String",
-              "info": "Second name",
-              "required": true
-            },
-            {
-              "name": "Age",
-              "type": "Number",
-              "info": "Age",
-              "required": true
-            },
-            {
-              "name": "Photo",
-              "type": "File",
-              "info": "Photo",
-              "required": true
-            },
-            {
-              "name": "Draft",
-              "type": "Boolean",
-              "info": "asdad",
-              "required": true
-            }
-          ]
-        },
-        {
-          "name": "arrayFileName",
-          "type": "Array",
-          "info": "test",
-          "required": false,
-          "structure": [{
-            "name": "arrayFile",
-            "type": "File",
-            "info": "File array",
-            "required": true
-          }]
-        },
-        {
-          "name": "arraySelectName",
-          "type": "List",
-          "info": "select",
-          "required": false,
-          "structure": {
-            "name": "arraySelect",
-            "type": "Select",
-            "options": ["metric", "imperial"],
-            "info": "Select array",
-            "required": true
-          }
-        },
-        {
-          "name": "arrayDatePickerName",
-          "type": "Array",
-          "info": "DatePicker",
-          "required": false,
-          "structure": [{
-            "name": "arrayDatePicker",
-            "type": "DatePicker",
-            "info": "DatePicker array",
-            "required": true
-          }]
-        },
-        {
-          "name": "arrayMapName",
-          "type": "List",
-          "info": "Map",
-          "required": false,
-          "structure": {
-            "name": "arrayMap",
-            "type": "Map",
-            "info": "Map array"
-          }
-        },
-        {
-          "name": "SelectName",
-          "type": "Select",
-          "options": ["metric", "imperial"],
-          "info": "Select info",
-          "required": false
-        },
-        {
-          "name": "DatePickerName",
-          "type": "DatePicker",
-          "info": "DatePicker info",
-          "required": false
-        },
-        {
-          "name": "MapName",
-          "type": "Map",
-          "info": "Map info",
-          "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
       "name": "getDrivingDuration",
       "description": "Сalculate the duration of travel by car",
       "args": [
@@ -251,10 +44,10 @@
           "info": "Success"
         }
       ]
-    },
-    {
-      "name": "getDrivingDurationByFile",
-      "description": "Сalculate the duration of travel by car (json file coordinates)",
+		},
+		{
+      "name": "getDrivingTrafficDuration",
+      "description": "Сalculate the duration of travel by car",
       "args": [
         {
           "name": "accessToken",
@@ -264,9 +57,14 @@
         },
         {
           "name": "coordinates",
-          "type": "File",
-          "info": "File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].",
-          "required": true
+          "type": "List",
+          "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
+          "required": true,
+          "structure": {
+            "name": "coordinate",
+            "type": "Map",
+            "info": "Coordinate"
+          }
         }
       ],
       "callbacks": [
@@ -314,34 +112,6 @@
       ]
     },
     {
-      "name": "getWalkingDurationByFile",
-      "description": "Сalculate the duration of travel by walking (json file coordinates)",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": true
-        },
-        {
-          "name": "coordinates",
-          "type": "File",
-          "info": "File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
       "name": "getCyclingDuration",
       "description": "Сalculate the duration of travel by cycling",
       "args": [
@@ -361,34 +131,6 @@
             "type": "Map",
             "info": "Coordinate"
           }
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "getCyclingDurationByFile",
-      "description": "Сalculate the duration of travel by cycling (json file coordinates)",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": true
-        },
-        {
-          "name": "coordinates",
-          "type": "File",
-          "info": "File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].",
-          "required": true
         }
       ],
       "callbacks": [

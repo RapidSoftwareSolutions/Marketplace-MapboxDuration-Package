@@ -15,6 +15,6 @@ return [
             'path' => __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
-        'apiUrl' => 'https://api.mapbox.com/distances/v1/mapbox',
+        'apiUrl' => 'https://api.mapbox.com/directions-matrix/v1/mapbox',
     ],
 ];

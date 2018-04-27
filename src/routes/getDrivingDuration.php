@@ -15,35 +15,25 @@ $app->post('/api/MapboxDuration/getDrivingDuration', function ($request, $respon
     }
     $url = $settings['apiUrl'] . '/driving';
 
-    $params['access_token'] = $postData['args']['accessToken'];
+		$token = $postData['args']['accessToken'];
 
     $json = [];
 
     foreach ($postData['args']['coordinates'] as $key => $coordinate) {
-        if (is_array($coordinate)) {
-            $json['coordinates'][$key][] = $coordinate['lng'];
-            $json['coordinates'][$key][] = $coordinate['lat'];
-        } else {
-            $coordinateArray = explode(',', str_replace(" ", "", $coordinate));
-            $json['coordinates'][$key][] = $coordinateArray[0];
-            $json['coordinates'][$key][] = $coordinateArray[1];
-        }
-    }
-
-    $json['coordinates'] = array_map(
-        function ($item) {
-            return array_map('floatval', array_values($item));
-        },
-        $json['coordinates']
-    );
-
+			if (is_array($coordinate)) {
+					$coordinateString .=  $json['coordinates'][$key][] = $coordinate['lng'] . ',' . $json['coordinates'][$key][] = $coordinate['lat'] . ';';
+					
+			} else {
+					$coordinateArray = explode(',', str_replace(" ", "", $coordinate));
+					$coordinateString .=  $json['coordinates'][$key][] = $coordinateArray[0] . ',' . $json['coordinates'][$key][] = $coordinateArray[1] = $coordinate['lat'] . ';';
+			}
+	}
+	$coordinates = substr($coordinateString, 0, -1);
+ 
     try {
         /** @var GuzzleHttp\Client $client */
         $client = $this->httpClient;
-        $vendorResponse = $client->post($url, [
-            'query' => $params,
-            'json' => $json
-        ]);
+        $vendorResponse = $client->get($url . "/" . $coordinates . "?access_token=" .$token);
 
         $vendorResponseBody = $vendorResponse->getBody()->getContents();
         if ($vendorResponse->getStatusCode() == 200) {

@@ -26,14 +26,6 @@ Calculation of travel time (in sec) between points based on the type of transpor
 | accessToken| credentials| The api key obtained from Mapbox
 | coordinates| List       | List of Maps (coordinates) minimum 2 pairs of coordinates. Maximum 100 pairs.
 
-## MapboxDuration.getDrivingDurationByFile
-Сalculate the duration of travel by car (json file coordinates)
-
-| Field      | Type       | Description
-|------------|------------|----------
-| accessToken| credentials| The api key obtained from Mapbox
-| coordinates| File       | File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].
-
 ## MapboxDuration.getWalkingDuration
 Сalculate the duration of travel by walking
 
@@ -41,14 +33,6 @@ Calculation of travel time (in sec) between points based on the type of transpor
 |------------|------------|----------
 | accessToken| credentials| The api key obtained from Mapbox
 | coordinates| List       | List of Maps (coordinates) minimum 2 pairs of coordinates. Maximum 100 pairs.
-
-## MapboxDuration.getWalkingDurationByFile
-Сalculate the duration of travel by walking (json file coordinates)
-
-| Field      | Type       | Description
-|------------|------------|----------
-| accessToken| credentials| The api key obtained from Mapbox
-| coordinates| File       | File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].
 
 ## MapboxDuration.getCyclingDuration
 Сalculate the duration of travel by cycling
@@ -58,13 +42,13 @@ Calculation of travel time (in sec) between points based on the type of transpor
 | accessToken| credentials| The api key obtained from Mapbox
 | coordinates| List       | List of Maps (coordinates) minimum 2 pairs of coordinates. Maximum 100 pairs.
 
-## MapboxDuration.getCyclingDurationByFile
-Сalculate the duration of travel by cycling (json file coordinates)
+## MapboxDuration.getDrivingTrafficDuration
+Сalculate the duration of travel by cycling
 
 | Field      | Type       | Description
 |------------|------------|----------
 | accessToken| credentials| The api key obtained from Mapbox
-| coordinates| File       | File with coordinates in json format. Maximum 100 pairs of coordinates like [[longitude1,latitude1], [longitude2,latitude2]].
+| coordinates| List       | List of Maps (coordinates) minimum 2 pairs of coordinates. Maximum 100 pairs.
 
 #### Examples
 MapboxDuration.getCyclingDuration
@@ -87,35 +71,6 @@ Response
             {
                 "code":"Ok",
                 "durations":[
-                    [0,14753.7,23437],
-                    [14639.3,0,29524.6],
-                    [22498.4,29708.1,0]
-                ]
-            }
-        ]
-    }
-}
-```
-
-MapboxDuration.getCyclingDurationByFile
-coordinates.json
-```code
-[
-    [13.41894, 52.50055],
-    [14.10293, 52.50055],
-    [13.50116, 53.10293]
-]
-```
-Response
-```code
-{
-    "callback": "success",
-    "contextWrites": 
-    {
-        "to":[
-            {
-                "code": "Ok",
-                "durations": [
                     [0,14753.7,23437],
                     [14639.3,0,29524.6],
                     [22498.4,29708.1,0]
