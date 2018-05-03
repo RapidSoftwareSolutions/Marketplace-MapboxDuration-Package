@@ -1,148 +1,139 @@
 {
-  "package": "MapboxDuration",
-  "tagline": "Maxbox Duration API",
-  "description": "Calculation of travel time (in sec) between points based on the type of transport",
-  "image": "https://logo.clearbit.com/mapbox.com",
-  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MapboxDuration-Package",
-  "keywords": ["map","duration","route", "area", "coordinates"],
-  "accounts": {
-    "domain": "https://mapbox.com",
-    "credentials": [
-      "accessToken"
-    ]
-  },
-  "blocks": [
-    {
-      "name": "getDrivingDuration",
-      "description": "Сalculate the duration of travel by car",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": true
-        },
-        {
-          "name": "coordinates",
-          "type": "List",
-          "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
-          "required": true,
-          "structure": {
-            "name": "coordinate",
-            "type": "Map",
-            "info": "Coordinate"
-          }
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
+	"package": "MapboxDuration",
+	"tagline": "Maxbox Duration API",
+	"description": "Calculation of travel time (in sec) between points based on the type of transport",
+	"image": "https://logo.clearbit.com/mapbox.com",
+	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MapboxDuration-Package",
+	"keywords": ["map", "duration", "route", "area", "coordinates"],
+	"accounts": {
+		"domain": "https://mapbox.com",
+		"credentials": [
+			"accessToken"
+		]
+	},
+	"blocks": [{
+			"name": "getDrivingDuration",
+			"description": "Сalculate the duration of travel by car",
+			"args": [{
+					"name": "accessToken",
+					"type": "credentials",
+					"info": "The api key obtained from Mapbox",
+					"required": true
+				},
+				{
+					"name": "coordinates",
+					"type": "List",
+					"info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
+					"required": true,
+					"structure": {
+						"name": "coordinate",
+						"type": "Map",
+						"info": "Coordinate"
+					}
+				}
+			],
+			"callbacks": [{
+					"name": "error",
+					"info": "Error"
+				},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
 		},
 		{
-      "name": "getDrivingTrafficDuration",
-      "description": "Сalculate the duration of travel by car",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": true
-        },
-        {
-          "name": "coordinates",
-          "type": "List",
-          "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
-          "required": true,
-          "structure": {
-            "name": "coordinate",
-            "type": "Map",
-            "info": "Coordinate"
-          }
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "getWalkingDuration",
-      "description": "Сalculate the duration of travel by walking",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": true
-        },
-        {
-          "name": "coordinates",
-          "type": "List",
-          "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
-          "required": true,
-          "structure": {
-            "name": "coordinate",
-            "type": "Map",
-            "info": "Coordinate"
-          }
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "getCyclingDuration",
-      "description": "Сalculate the duration of travel by cycling",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "The api key obtained from Mapbox",
-          "required": true
-        },
-        {
-          "name": "coordinates",
-          "type": "List",
-          "info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
-          "required": true,
-          "structure": {
-            "name": "coordinate",
-            "type": "Map",
-            "info": "Coordinate"
-          }
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    }
-  ]
+			"name": "getDrivingTrafficDuration",
+			"description": "Сalculate the duration of travel by car",
+			"args": [{
+					"name": "accessToken",
+					"type": "credentials",
+					"info": "The api key obtained from Mapbox",
+					"required": true
+				},
+				{
+					"name": "coordinates",
+					"type": "List",
+					"info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
+					"required": true,
+					"structure": {
+						"name": "coordinate",
+						"type": "Map",
+						"info": "Coordinate"
+					}
+				}
+			],
+			"callbacks": [{
+					"name": "error",
+					"info": "Error"
+				},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getWalkingDuration",
+			"description": "Сalculate the duration of travel by walking",
+			"args": [{
+					"name": "accessToken",
+					"type": "credentials",
+					"info": "The api key obtained from Mapbox",
+					"required": true
+				},
+				{
+					"name": "coordinates",
+					"type": "List",
+					"info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
+					"required": true,
+					"structure": {
+						"name": "coordinate",
+						"type": "Map",
+						"info": "Coordinate"
+					}
+				}
+			],
+			"callbacks": [{
+					"name": "error",
+					"info": "Error"
+				},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getCyclingDuration",
+			"description": "Сalculate the duration of travel by cycling",
+			"args": [{
+					"name": "accessToken",
+					"type": "credentials",
+					"info": "The api key obtained from Mapbox",
+					"required": true
+				},
+				{
+					"name": "coordinates",
+					"type": "List",
+					"info": "Minimum 2 pairs of coordinates. Maximum 100 pairs.",
+					"required": true,
+					"structure": {
+						"name": "coordinate",
+						"type": "Map",
+						"info": "Coordinate"
+					}
+				}
+			],
+			"callbacks": [{
+					"name": "error",
+					"info": "Error"
+				},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		}
+	]
 }

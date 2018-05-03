@@ -1,12 +1,11 @@
 <?php
 $routes = [
-		'getDrivingDuration',
-		'getDrivingTrafficDuration',
+    'getDrivingDuration',
+    'getDrivingTrafficDuration',
     'getWalkingDuration',
     'getCyclingDuration',
-    'metadata'
+    'metadata',
 ];
-foreach($routes as $file) {
-    require __DIR__ . '/../src/routes/'.$file.'.php';
+foreach ($routes as $file) {
+    require __DIR__ . '/../src/routes/' . $file . '.php';
 }
-

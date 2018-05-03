@@ -15,25 +15,25 @@ $app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $respon
     }
     $url = $settings['apiUrl'] . '/walking';
 
-		$token = $postData['args']['accessToken'];
+    $token = $postData['args']['accessToken'];
 
     $json = [];
 
-		foreach ($postData['args']['coordinates'] as $key => $coordinate) {
-			if (is_array($coordinate)) {
-					$coordinateString .=  $json['coordinates'][$key][] = $coordinate['lng'] . ',' . $json['coordinates'][$key][] = $coordinate['lat'] . ';';
-					
-			} else {
-					$coordinateArray = explode(',', str_replace(" ", "", $coordinate));
-					$coordinateString .=  $json['coordinates'][$key][] = $coordinateArray[0] . ',' . $json['coordinates'][$key][] = $coordinateArray[1] = $coordinate['lat'] . ';';
-			}
-	}
-	$coordinates = substr($coordinateString, 0, -1);
+    foreach ($postData['args']['coordinates'] as $key => $coordinate) {
+        if (is_array($coordinate)) {
+            $coordinateString .= $json['coordinates'][$key][] = $coordinate['lng'] . ',' . $json['coordinates'][$key][] = $coordinate['lat'] . ';';
+
+        } else {
+            $coordinateArray = explode(',', str_replace(" ", "", $coordinate));
+            $coordinateString .= $json['coordinates'][$key][] = $coordinateArray[0] . ',' . $json['coordinates'][$key][] = $coordinateArray[1] = $coordinate['lat'] . ';';
+        }
+    }
+    $coordinates = substr($coordinateString, 0, -1);
 
     try {
         /** @var GuzzleHttp\Client $client */
         $client = $this->httpClient;
-        $vendorResponse = $client->get($url . "/" . $coordinates . "?access_token=" .$token);
+        $vendorResponse = $client->get($url . "/" . $coordinates . "?access_token=" . $token);
 
         $vendorResponseBody = $vendorResponse->getBody()->getContents();
         if ($vendorResponse->getStatusCode() == 200) {
