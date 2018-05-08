@@ -43,7 +43,7 @@ Calculation of travel time (in sec) between points based on the type of transpor
 | coordinates| List       | List of Maps (coordinates) minimum 2 pairs of coordinates. Maximum 100 pairs.
 
 ## MapboxDuration.getDrivingTrafficDuration
-Сalculate the duration of travel by cycling
+Сalculate for car travel times with traffic
 
 | Field      | Type       | Description
 |------------|------------|----------

@@ -44,7 +44,7 @@
 		},
 		{
 			"name": "getDrivingTrafficDuration",
-			"description": "Сalculate the duration of travel by car",
+			"description": "Сalculate for car travel times with traffic",
 			"args": [{
 					"name": "accessToken",
 					"type": "credentials",
