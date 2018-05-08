@@ -1,4 +1,4 @@
-x<?php
+<?php
 
 $app->post('/api/MapboxDuration/getWalkingDuration', function ($request, $response) {
     /** @var \Slim\Http\Response $response */
